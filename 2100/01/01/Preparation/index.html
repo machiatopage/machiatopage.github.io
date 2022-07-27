@@ -11,18 +11,20 @@
   
   
   
-  <meta name="description" content="Change default shell1. Set bash as default shell1chsh -s &#x2F;bin&#x2F;bash;  Install software1. install miniconda3 from Conda(https:&#x2F;&#x2F;docs.conda.io&#x2F;en&#x2F;latest&#x2F;miniconda.html) 2. install R (&gt;version R-4.0.1)">
+  <meta name="description" content="The MaChIAto consists of python and R with various packages other developers established. So the installation process is complex. However, you can quickly install MaChIAto using the docker container.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Preparation">
 <meta property="og:url" content="https://github.com/2100/01/01/Preparation/index.html">
 <meta property="og:site_name" content="MaChIAto">
-<meta property="og:description" content="Change default shell1. Set bash as default shell1chsh -s &#x2F;bin&#x2F;bash;  Install software1. install miniconda3 from Conda(https:&#x2F;&#x2F;docs.conda.io&#x2F;en&#x2F;latest&#x2F;miniconda.html) 2. install R (&gt;version R-4.0.1)">
+<meta property="og:description" content="The MaChIAto consists of python and R with various packages other developers established. So the installation process is complex. However, you can quickly install MaChIAto using the docker container.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/2100/01/01/Preparation/images/docker_setting.png">
 <meta property="article:published_time" content="2099-12-31T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-21T16:52:54.869Z">
+<meta property="article:modified_time" content="2022-07-27T10:47:58.524Z">
 <meta property="article:author" content="Kazuki Nakamae, Ph.D., Hiroshima Univ, Japan.">
 <meta property="article:tag" content="MaChIAto, HowToUse">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/2100/01/01/Preparation/images/docker_setting.png">
   
     <link rel="alternate" href="/atom.xml" title="MaChIAto" type="application/atom+xml">
   
@@ -209,7 +211,34 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Change-default-shell"><a href="#Change-default-shell" class="headerlink" title="Change default shell"></a>Change default shell</h3><h4 id="1-Set-bash-as-default-shell"><a href="#1-Set-bash-as-default-shell" class="headerlink" title="1. Set bash as default shell"></a>1. Set bash as default shell</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/bash;</span><br></pre></td></tr></table></figure>
+        <p>The MaChIAto consists of python and R with various packages other developers established. So the installation process is complex. However, you can quickly install MaChIAto using the docker container.</p>
+<h1 id="Install-MaChIAto-using-the-docker-Strongly-Recommended"><a href="#Install-MaChIAto-using-the-docker-Strongly-Recommended" class="headerlink" title="Install MaChIAto using the docker (Strongly Recommended)"></a>Install MaChIAto using the docker (Strongly Recommended)</h1><p>Docker must be configured to access your hard drive and to run with sufficient memory. These parameters can be found in the Docker settings menu. To allow Docker to access your hard drive, select ‘Shared Drives’ and make sure your drive name is selected. To adjust the memory allocation, select the ‘Advanced’ tab and allocate at least 4G of memory.</p>
+<ol>
+<li><p>Download and install Docker Desktop: <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/#desktop">https://docs.docker.com/engine/install/#desktop</a></p>
+</li>
+<li><p>Enter Docker settings menu to adjust the memory allocation (~10G of memory is recommmended)</p>
+</li>
+</ol>
+<img src="images/docker_setting.png" alt="" title="docker_setting" height="200">
+
+<ol start="3">
+<li>Type the following commands in the terminal.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Download Docker image for MaChIAto Classifier</span><br><span class="line">docker run --rm -v `pwd`:/DATA -w /DATA -i kazukinakamae/machiato:latest python ../MaChIAto.py -h;</span><br><span class="line"># Download Docker image for MaChIAto Aligner</span><br><span class="line">docker run --rm -v `pwd`:/DATA -w /DATA -i kazukinakamae/machiato_aligner:latest Rscript ../MaChIAtoAligner.R</span><br><span class="line"># Download Docker image for collect_MaChIAto_data.py</span><br><span class="line">docker run --rm -v `pwd`:/DATA -w /DATA -i kazukinakamae/collect_machiato_data:latest python ../collect_MaChIAto_data.py;</span><br><span class="line"># Download Docker image for MaChIAto Analyzer</span><br><span class="line">docker run --rm -v `pwd`:/DATA -w /DATA -i kazukinakamae/machiato_analyzer:latest Rscript ../MaChIAtoAnalyzer.R;</span><br><span class="line"># Download Docker image for MaChIAto Reviewer</span><br><span class="line">docker run --rm -v `pwd`:/DATA -w /DATA -i kazukinakamae/machiato_reviewer:latest Rscript ../MaChIAtoReviewer.R;</span><br></pre></td></tr></table></figure>
+
+<p>Then, if you wish, you can follow the manual below.</p>
+<p>Quick Start: <a target="_blank" rel="noopener" href="https://machiatopage.github.io/2100/01/02/Quick-Start/">https://machiatopage.github.io/2100/01/02/Quick-Start/</a><br>Usage of MaChIAto Classifier: <a target="_blank" rel="noopener" href="https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Classifier/">https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Classifier/</a><br>Usage of MaChIAto Aligner: <a target="_blank" rel="noopener" href="https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Aligner/">https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Aligner/</a><br>Usage of collect_MaChIAto_data.py:<br>Usage of MaChIAto Analyzer: <a target="_blank" rel="noopener" href="https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Analyzer/">https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Analyzer/</a><br>Usage of MaChIAto Reviewer: <a target="_blank" rel="noopener" href="https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Reviewer/">https://machiatopage.github.io/2022/06/22/Usage-of-MaChIAto-Reviewer/</a></p>
+<h1 id="Install-MaChIAto-within-the-conda-environment-Deprecated"><a href="#Install-MaChIAto-within-the-conda-environment-Deprecated" class="headerlink" title="Install MaChIAto within the conda environment (Deprecated)"></a>Install MaChIAto within the conda environment (Deprecated)</h1><p>The installation procedure is deprecated. We are <strong>not supporting</strong> the procedure because the environment is not stable and is difficult to reproduce.</p>
+<h2 id="MacOSX"><a href="#MacOSX" class="headerlink" title="MacOSX"></a>MacOSX</h2><ol>
+<li>Click <a href="https://github.com/KazukiNakamae/MaChIAto/archive/refs/heads/master.zip">HERE</a> to download MaChIAto.</li>
+</ol>
+<p>Alternatively, enter the following command terminal.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/KazukiNakamae/MaChIAto.git;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Install miniconda3, R (&gt;version R-4.0.1), Xcode, and XQuartz according to the following instructions.</li>
+</ol>
+<h3 id="Change-default-shell"><a href="#Change-default-shell" class="headerlink" title="Change default shell"></a>Change default shell</h3><h4 id="1-Set-bash-as-default-shell"><a href="#1-Set-bash-as-default-shell" class="headerlink" title="1. Set bash as default shell"></a>1. Set bash as default shell</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/bash;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Install-software"><a href="#Install-software" class="headerlink" title="Install software"></a>Install software</h3><h4 id="1-install-miniconda3-from-Conda"><a href="#1-install-miniconda3-from-Conda" class="headerlink" title="1. install miniconda3 from Conda"></a>1. install miniconda3 from Conda</h4><p>(<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a>)</p>
 <h4 id="2-install-R-gt-version-R-4-0-1-from-the-CRAN"><a href="#2-install-R-gt-version-R-4-0-1-from-the-CRAN" class="headerlink" title="2. install R (&gt;version R-4.0.1) from the CRAN"></a>2. install R (&gt;version R-4.0.1) from the CRAN</h4><p>(<a target="_blank" rel="noopener" href="https://cran.ism.ac.jp/">https://cran.ism.ac.jp</a>)</p>
@@ -223,6 +252,17 @@
 <h4 id="3-Environment-for-MaChIAtoAnalyzer"><a href="#3-Environment-for-MaChIAtoAnalyzer" class="headerlink" title="3. Environment for MaChIAtoAnalyzer"></a>3. Environment for MaChIAtoAnalyzer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conda create --name MaChIAto_Analyzer_env;</span><br><span class="line"><span class="built_in">source</span> activate MaChIAto_Analyzer_env;</span><br><span class="line">conda install -c anaconda python=3.8 wget;</span><br><span class="line">conda install -c bioconda emboss;</span><br><span class="line">conda install -c bioconda oligoarrayaux;</span><br><span class="line">pip install --upgrade pip;</span><br><span class="line">pip install numpy regex tqdm pandas;</span><br><span class="line">conda deactivate;</span><br></pre></td></tr></table></figure>
 
 <h4 id="4-Environment-for-MaChIAtoReviewer"><a href="#4-Environment-for-MaChIAtoReviewer" class="headerlink" title="4. Environment for MaChIAtoReviewer"></a>4. Environment for MaChIAtoReviewer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n MaChIAto_Reviewer_env --<span class="built_in">clone</span> MaChIAto_Aligner_env;</span><br><span class="line"><span class="built_in">source</span> activate MaChIAto_Reviewer_env;</span><br><span class="line">conda deactivate;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><ol>
+<li>Click <a href="https://github.com/KazukiNakamae/MaChIAto/archive/refs/heads/master.zip">HERE</a> to download MaChIAto.</li>
+</ol>
+<p>Alternatively, enter the following command terminal.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/KazukiNakamae/MaChIAto.git;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Install micromamba (version 0.13.1). All packages can be installed using mamba and apt-get in the same way as generating the docker images.<br>Please refer to the dockerfile of each directory (MaChIAto, MaChIAto_Aligner, collect_MaChIAto_data, MaChIAto_Analyzer, MaChIAto_Reviewer).</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
@@ -270,9 +310,9 @@
     </a>
   
   
-    <a href="/2022/06/25/How-to-calculate-the-value-of-accessibility/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/07/27/Output-of-collect-MaChIAto-data-py/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">How to calculate the value of accessibility</div>
+      <div class="article-nav-title">Output of collect_MaChIAto_data.py</div>
     </a>
   
 </nav>
@@ -286,7 +326,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-default-shell"><span class="nav-number">1.</span> <span class="nav-text">Change default shell</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Set-bash-as-default-shell"><span class="nav-number">1.1.</span> <span class="nav-text">1. Set bash as default shell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-software"><span class="nav-number">2.</span> <span class="nav-text">Install software</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-install-miniconda3-from-Conda"><span class="nav-number">2.1.</span> <span class="nav-text">1. install miniconda3 from Conda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-install-R-gt-version-R-4-0-1-from-the-CRAN"><span class="nav-number">2.2.</span> <span class="nav-text">2. install R (&gt;version R-4.0.1) from the CRAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-install-Xcode-from-the-App-Store"><span class="nav-number">2.3.</span> <span class="nav-text">3. install Xcode from the App Store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-install-XQuartz-from-the-XQuartz-project"><span class="nav-number">2.4.</span> <span class="nav-text">4. install XQuartz from the XQuartz project</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-the-environment-using-conda"><span class="nav-number">3.</span> <span class="nav-text">Build the environment using conda</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Environment-for-MaChIAto-MaChIAto-Classifier"><span class="nav-number">3.1.</span> <span class="nav-text">1. Environment for MaChIAto_(MaChIAto Classifier)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Environment-for-MaChIAtoAligner"><span class="nav-number">3.2.</span> <span class="nav-text">2. Environment for MaChIAtoAligner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Environment-for-MaChIAtoAnalyzer"><span class="nav-number">3.3.</span> <span class="nav-text">3. Environment for MaChIAtoAnalyzer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Environment-for-MaChIAtoReviewer"><span class="nav-number">3.4.</span> <span class="nav-text">4. Environment for MaChIAtoReviewer</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-MaChIAto-using-the-docker-Strongly-Recommended"><span class="nav-number">1.</span> <span class="nav-text">Install MaChIAto using the docker (Strongly Recommended)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-MaChIAto-within-the-conda-environment-Deprecated"><span class="nav-number">2.</span> <span class="nav-text">Install MaChIAto within the conda environment (Deprecated)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MacOSX"><span class="nav-number">2.1.</span> <span class="nav-text">MacOSX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-default-shell"><span class="nav-number">2.1.1.</span> <span class="nav-text">Change default shell</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Set-bash-as-default-shell"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">1. Set bash as default shell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-software"><span class="nav-number">2.1.2.</span> <span class="nav-text">Install software</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-install-miniconda3-from-Conda"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">1. install miniconda3 from Conda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-install-R-gt-version-R-4-0-1-from-the-CRAN"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">2. install R (&gt;version R-4.0.1) from the CRAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-install-Xcode-from-the-App-Store"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">3. install Xcode from the App Store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-install-XQuartz-from-the-XQuartz-project"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">4. install XQuartz from the XQuartz project</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-the-environment-using-conda"><span class="nav-number">2.1.3.</span> <span class="nav-text">Build the environment using conda</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Environment-for-MaChIAto-MaChIAto-Classifier"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">1. Environment for MaChIAto_(MaChIAto Classifier)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Environment-for-MaChIAtoAligner"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">2. Environment for MaChIAtoAligner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Environment-for-MaChIAtoAnalyzer"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">3. Environment for MaChIAtoAnalyzer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Environment-for-MaChIAtoReviewer"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">4. Environment for MaChIAtoReviewer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">2.2.</span> <span class="nav-text">Linux</span></a></li></ol></li></ol>
     
     </div>
   </aside>

@@ -519,11 +519,9 @@ MaChIAto (Microhomology-associated Chromosomal Integration&#x2F;editing Analysis
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          We demonstrate a simple example.Before that, you have to build the environment according to the section of Preparation.
-1. Download MaChIAto with example filesClick “Download ZIP”.
-Download ZIP
-Alternatively, enter the following command terminal.
-...
+          We demonstrate a simple example.
+1. Download MaChIAto with example filesEnter the following command terminal after you download and install Docker Desktop: https://docs.docker.com/engine/install/#desktop.
+12# Download Docker image for MaChIAto Cla...
         </p>
         <p class="article-more-link">
           <a href="/2100/01/02/Quick-Start/#more">Read More</a>
@@ -575,14 +573,115 @@ Alternatively, enter the following command terminal.
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Change default shell1. Set bash as default shell1chsh -s /bin/bash;
-
-Install software1. install miniconda3 from Conda(https://docs.conda.io/en/latest/miniconda.html)
-2. install R (&gt;version R-4.0.1) from the CRAN(https://cran.ism.ac.jp)
-3. insta...
+          The MaChIAto consists of python and R with various packages other developers established. So the installation process is complex. However, you can quickly install MaChIAto using the docker container.
+Install MaChIAto using the docker (Strongly Rec...
         </p>
         <p class="article-more-link">
           <a href="/2100/01/01/Preparation/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Output-of-collect-MaChIAto-data-py"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/27/Output-of-collect-MaChIAto-data-py/">Output of collect_MaChIAto_data.py</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/27/Output-of-collect-MaChIAto-data-py/" class="article-date">
+	  <time datetime="2022-07-27T11:15:08.000Z" itemprop="datePublished">2022-07-27</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/07/27/Output-of-collect-MaChIAto-data-py/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Usage-of-collect-MaChIAto-data-py"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/27/Usage-of-collect-MaChIAto-data-py/">Usage of collect_MaChIAto_data.py</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/27/Usage-of-collect-MaChIAto-data-py/" class="article-date">
+	  <time datetime="2022-07-27T08:07:24.000Z" itemprop="datePublished">2022-07-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          The user should execute collect_MaChIAto_data.py to make input file of MaChIAto Analyzer and MaChIAto Reviewer
+Parameter list-i or –indir {str}: input directory which includes the outputs of MaChIAto Classifier
+-o or –outdir {str}: output director...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/07/27/Usage-of-collect-MaChIAto-data-py/#more">Read More</a>
         </p>
       
     </div>
@@ -844,120 +943,12 @@ Template commandRscript MaChIAto_Reviewer&#x2F;MaChIAtoReviewer.R (Summary direc
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          At first, The user should execute collect_MaChIAto_data.py to make input file of MaChIAto Analyzer and MaChIAto Reviewer
-collect_MaChIAto_data.pyParameter list-i or –indir {str}: input directory which includes the outputs of MaChIAto Classifier
--o...
+          Parameter listSummary directory:The summary directory generated with “collect_MaChIAto_data.py”.
+Output prefix:The directory into which the output directory is saved.
+Name of extra data (optional):The name of the feature group that the next argume...
         </p>
         <p class="article-more-link">
           <a href="/2022/06/22/Usage-of-MaChIAto-Analyzer/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Output-of-MaChIAto-Aligner"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/22/Output-of-MaChIAto-Aligner/">Output of MaChIAto Aligner</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/22/Output-of-MaChIAto-Aligner/" class="article-date">
-	  <time datetime="2022-06-21T15:34:17.000Z" itemprop="datePublished">2022-06-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          [Coming soon]
-
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/06/22/Output-of-MaChIAto-Aligner/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Usage-of-MaChIAto-Aligner"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/22/Usage-of-MaChIAto-Aligner/">Usage of MaChIAto Aligner</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/22/Usage-of-MaChIAto-Aligner/" class="article-date">
-	  <time datetime="2022-06-21T15:32:23.000Z" itemprop="datePublished">2022-06-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Parameter listInput directory:The directory that MaChIAto Classifier generated.
-Output prefix:The directory into which the output directory is saved.
-Left extra sequence (optional):The outside sequence flanking 5’-homology arm of the donor. 
-Right...
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/06/22/Usage-of-MaChIAto-Aligner/#more">Read More</a>
         </p>
       
     </div>
